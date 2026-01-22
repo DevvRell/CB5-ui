@@ -133,9 +133,10 @@ This project is configured for deployment to Render as a static site.
 
 2. **Configure the service:**
    - **Name**: `the-competent-community-ui` (or your preferred name)
-   - **Build Command**: `npm install && npm run build`
+   - **Build Command**: `npm ci && npm run build` ⚠️ **IMPORTANT: This must be set manually in the dashboard**
    - **Publish Directory**: `dist`
-   - Render will automatically detect the `render.yaml` configuration file
+   - **Node Version**: `20` (or use the `.nvmrc` file)
+   - Note: The `render.yaml` file provides default configuration, but you may need to verify these settings in the Render dashboard
 
 3. **Set Environment Variables:**
    In the Render dashboard, add the following environment variables:

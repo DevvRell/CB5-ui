@@ -1,11 +1,11 @@
 services:
   - type: static
     name: the-competent-community-ui
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
-        value: 18.x
+        value: 20.x
       # Add your environment variables here
       # - key: VITE_API_URL
       #   value: your_api_url_here
