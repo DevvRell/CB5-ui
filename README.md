@@ -115,7 +115,49 @@ npm run build
 
 The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
 
-### Recommended Hosting
+### Deploying to Render
+
+This project is configured for deployment to Render as a static site.
+
+#### Prerequisites
+- A Render account
+- Your repository connected to Render
+
+#### Steps
+
+1. **Connect your repository to Render:**
+   - Go to your Render dashboard
+   - Click "New +" → "Static Site"
+   - Connect your Git repository
+   - Select the `ui` directory as the root directory
+
+2. **Configure the service:**
+   - **Name**: `the-competent-community-ui` (or your preferred name)
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+   - Render will automatically detect the `render.yaml` configuration file
+
+3. **Set Environment Variables:**
+   In the Render dashboard, add the following environment variables:
+   - `VITE_API_URL` - Your backend API URL
+   - `VITE_WEATHER_API_KEY` - OpenWeatherMap API key (if using weather features)
+   - `VITE_GOOGLE_MAPS_API_KEY` - Google Maps API key (if using maps features)
+   - `VITE_DATABASE_URL` - Database URL (if needed)
+   - `VITE_AUTH_DOMAIN` - Auth domain (if using authentication)
+   - `VITE_AUTH_CLIENT_ID` - Auth client ID (if using authentication)
+
+4. **Deploy:**
+   - Click "Create Static Site"
+   - Render will automatically build and deploy your application
+   - Your site will be available at `https://your-service-name.onrender.com`
+
+#### Notes
+- Render automatically handles SPA routing for React Router
+- The `render.yaml` file contains the deployment configuration
+- Environment variables prefixed with `VITE_` are available in your React app via `import.meta.env.VITE_*`
+- Make sure your backend API is deployed and accessible before setting `VITE_API_URL`
+
+### Other Recommended Hosting
 - Vercel
 - Netlify
 - GitHub Pages

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: the-competent-community-ui
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      # Add your environment variables here
+      # - key: VITE_API_URL
+      #   value: your_api_url_here
+      # - key: VITE_WEATHER_API_KEY
+      #   value: your_weather_api_key_here
+      # - key: VITE_GOOGLE_MAPS_API_KEY
+      #   value: your_google_maps_api_key_here
